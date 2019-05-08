@@ -34,7 +34,7 @@ buildscript {
         val kotlinUltimateBuildSrcDep = "org.jetbrains.kotlin.ultimate:buildSrc:1.0"
         if (findProperty("cidrPluginsEnabled")?.toString()?.toBoolean() == true) {
             logger.info("Adding buildscript classpath dependency \"$kotlinUltimateBuildSrcDep\" in build.gradle.kts")
-            classpath(kotlinUltimateBuildSrcDep)
+            classpath(kotlinUltimateBuildSrcDep) { isTransitive = false }
         } else {
             logger.info("NOT adding buildscript classpath dependency \"$kotlinUltimateBuildSrcDep\" in build.gradle.kts")
         }
